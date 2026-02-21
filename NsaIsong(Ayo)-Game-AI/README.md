@@ -19,7 +19,7 @@ Nsa Isong presents a unique challenge for standard neural architectures. The boa
 
 ## Repository Structure
 
-- `nsa_isong_engine.cpp`: C++ game logic and state transition engine.
+- `engine.cpp`: C++ game logic and state transition engine.
 - `klent_rl.py`: PBT and PPO orchestration for population evolution.
 - `export_onnx.py`: Model distillation and optimization script.
 - `index.html`: Client-side web interface for the Andifiok agent.
@@ -27,3 +27,4 @@ Nsa Isong presents a unique challenge for standard neural architectures. The boa
 ---
 
 **Andifiok** represents a fusion of traditional Akwa Ibom culture and modern deep learning research.
+
