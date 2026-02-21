@@ -7,6 +7,6 @@ Projects to Implement:
 
 [GNN-Grid-Stability] – Deep Learning-Enhanced PMU using Graph Neural Networks for Grid Stability and Fault Detection.
 
-[Ayo-Game-AI] – Reinforcement Learning approach. (Goal: Deployable web game).
+[NsaIsong(Ayo)-Game-AI] – Reinforcement Learning approach. (Goal: Deployable web game).
 
 [Gender-Classification] – Computer Vision with bias analysis. (Goal: Model Card documentation).
