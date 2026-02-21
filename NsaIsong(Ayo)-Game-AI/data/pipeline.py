@@ -1,10 +1,6 @@
 """
 data/pipeline.py
-================
-Phase 2 — Data Pipeline (The Fused Masterpiece)
-
-Blends Claude's O(1) NumPy memory optimization with our mathematical
-"Greedy Ayo" x^0.25 scaling to preserve mid-game heuristic signals.
+Phase 2 — Data Pipeline
 """
 
 import os
@@ -20,7 +16,7 @@ class AyoDataset(Dataset):
         df = pd.read_csv(csv_path)
         print(f"  {len(df):,} positions loaded.")
 
-        # ── Fast Numpy Memory (Claude's O(1) Optimization) ──────────
+        #Fast Numpy Memory
         self.board = df[[f"hole_{i}" for i in range(12)]].values.astype(np.int64)
 
         self.context = np.stack([
@@ -37,9 +33,7 @@ class AyoDataset(Dataset):
         row_sums = self.policy.sum(axis=1, keepdims=True)
         self.policy = np.divide(self.policy, row_sums, out=self.policy, where=row_sums!=0)
 
-        # ── The "Greedy Ayo" Fourth-Root Scaling (The Mathematical Fix) ──
-        # Claude's linear draw-zone threshold deleted mid-game heuristic signals.
-        # We restore the x^0.25 curve to amplify tiny heuristic advantages.
+        #"Greedy Ayo" Fourth-Root Scaling
         raw_value = df["value"].values.astype(np.float32)
         self.value = np.sign(raw_value) * (np.abs(raw_value) ** 0.25)
 
@@ -50,7 +44,7 @@ class AyoDataset(Dataset):
             / 48.0
         )
 
-        # ── Stats ───────────────────────────────────────────────
+        #Stats
         print(f"  Board range   : {self.board.min()} – {self.board.max()} seeds")
         print(f"  Value range   : {self.value.min():.3f} – {self.value.max():.3f}")
         print(f"  Capture rate  : {self.capture.mean():.1%}")
@@ -74,9 +68,7 @@ class AyoDataset(Dataset):
         }
         return inputs, targets
 
-# ─────────────────────────────────────────────────────────────
-#  Convenience factory
-# ─────────────────────────────────────────────────────────────
+
 def make_loaders(csv_path    : str,
                  val_split   : float = 0.05,
                  batch_size  : int   = 256,
