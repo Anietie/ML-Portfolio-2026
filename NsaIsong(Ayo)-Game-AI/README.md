@@ -12,7 +12,7 @@ Nsa Isong presents a unique challenge for standard neural architectures. The boa
 
 ## Technical Stack
 
-1. **Performance Core (C++):** A high-speed engine used for both expert-level Supervised Learning (SL) data generation and Phase 5 RL training.
+1. **Performance Core (C++):** A high-speed engine used for both expert-level Supervised Learning (SL) data generation and RL training.
 2. **Neural Architecture:** An 842k parameter Transformer that natively encodes circular board states.
 3. **Training (PBT):** An approach that asynchronously optimizes a population of 4 agents across dual NVIDIA T4 GPUs.
 4. **Deployment:** Model size is reduced from 9MB (training) to 3.5MB (ONNX) for sub-10ms browser-based inference via ONNX Runtime Web.
@@ -27,4 +27,5 @@ Nsa Isong presents a unique challenge for standard neural architectures. The boa
 ---
 
 **Andifiok** represents a fusion of traditional Akwa Ibom culture and modern deep learning research.
+
 
